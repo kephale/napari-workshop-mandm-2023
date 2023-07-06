@@ -10,7 +10,16 @@ On the web: **https://kephale.github.io/napari-workshop-mandm-2023/**
 
 ### GUI installation
 
-https://github.com/kephale/napari-workshop-browser
+1. Download napari as an app (e.g. the 0.4.18 release candidates here: https://github.com/napari/packaging/actions/runs/5410466633 or a nightly build from here: https://github.com/napari/napari/releases/tag/latest)
+2. Open napari.
+3. Select `Plugins \ Plugin Manager`.
+4. Install the `napari workshop browser` plugin, and restart napari.
+6. Run this plugin and enter the URL of this workshop's zip file: https://github.com/kephale/napari-workshop-mandm-2023/archive/refs/heads/main.zip
+7. Click `Launch workshop`.
+
+### Non-GUI installation
+
+Follow the instructions on napari.org: https://napari.org/stable/tutorials/fundamentals/installation.html
 
 ## Resources 
 
