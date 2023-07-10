@@ -19,4 +19,5 @@ chapters:
   - file: notebooks/segmenting_and_measuring_nuclei_stardist
   - file: notebooks/manual_annotation
   - file: notebooks/custom_colormaps
+  - file: notebooks/mitonet_segmentation
 - file: make_a_simple_plugin
