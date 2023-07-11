@@ -20,8 +20,8 @@ we will make a spot detection plugin.
 
 ## Instructors
 The instructors for this workshop are
-- Name1
-- Name2
+- Kasia Kedziora
+- Kyle Harrington
 
 ## Goals
 The aim of this workshop is to provide an introduction to bioimage analysis in
@@ -37,11 +37,17 @@ Python and `napari`. By the end of the workshop you should be able to
 So that we can best utilize our time together, please do the following before
 arriving at the tutorial:
 
-1. Install napari and dependencies. Instructions [here](./installation.md).
+1. Install napari and dependencies. GUI-only instructions are [here](./bundled_app_setup.md), and Python-based instructions [here](./installation.md).
+
+If following the Python-based instructions you will then need to:
 2. Download the notebooks and launch the `jupyter notebook` application.
   Instructions [here](./notebook_setup.md).
+  
+If you are following the GUI-only instructions, then you have already downloaded and launched the notebooks by following the instructions.
 
 ## Tutorial instructions
+
+NOTE: THE ACTIVITY INSTRUCTIONS ARE UNDER CONSTRUCTION
 
 1. Do the introduction to viewing images in napari
   (`part_0_viewer_intro.ipynb`).
