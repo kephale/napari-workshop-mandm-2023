@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# notebook: mitonet segmentation
+# notebook: mitonet segmentation_copy
 
 The dataset we will use is https://openorganelle.janelia.org/datasets/jrc_mus-kidney.
 
@@ -40,7 +40,6 @@ from napari.utils import nbscreenshot
 # Create an empty viewer
 viewer = napari.Viewer()
 ```
-
 
 Let's read the metadata from our [remote image](https://openorganelle.janelia.org/datasets/jrc_mus-kidney), an electron microscopy image of mouse kidney from the [OpenOrganelle project](https://openorganelle.janelia.org/).
 
