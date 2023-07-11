@@ -1,15 +1,5 @@
-# napari workshop
+# the napari image analysis workshop at Microscopy and Microanalysis 2023
 
-This site contains materials for creating and deploying `napari` workshop
-materials. For more information about the project, head over to
-[napari.org](https://napari.org). To explore our plugin ecosystem, be sure to
-check out the [napari hub](https://www.napari-hub.org/).
+This site contains the materials for the image analysis component of `Biological EM Sample Processing Short Course - Part II` at M&M 2023.
 
-Use the sidebar to navigate to the materials, and
-[fork this repo](https://docs.github.com/get-started/quickstart/fork-a-repo) if
-you want to create your own workshop.
-
-```{tip}
-If you run into any trouble, head over to our
-[zulip chat](https://napari.zulipchat.com/) where we can help you get unstuck!
-```
+The course focuses on using a popular open source tool [napari](https://napari.org). Attendees will use both graphical and Python-based interfaces to learn about image analysis with napari.
