@@ -17,4 +17,5 @@ chapters:
   - file: notebooks/manual_annotation
   - file: notebooks/custom_colormaps
   - file: notebooks/mitonet_segmentation
+  - file: notebooks/test
 - file: make_a_simple_plugin
