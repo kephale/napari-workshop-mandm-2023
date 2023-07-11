@@ -12,6 +12,8 @@ kernelspec:
 ---
 
 
+# notebook: try animation
+
 ```{code-cell} ipython3
 :tags: [remove-output]
 
