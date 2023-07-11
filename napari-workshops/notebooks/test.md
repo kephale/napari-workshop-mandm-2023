@@ -12,6 +12,10 @@ jupyter:
     name: python3
 ---
 
+# test notebook!
+
+some text here too
+
 ```python
 import os
 ```
