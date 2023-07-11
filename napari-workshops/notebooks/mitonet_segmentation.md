@@ -41,16 +41,14 @@ from napari.utils import nbscreenshot
 viewer = napari.Viewer()
 ```
 
-Let's read the metadata from our remote zarr image.
+Let's read the metadata from our [remote image](https://openorganelle.janelia.org/datasets/jrc_mus-kidney), an electron microscopy image of mouse kidney from the [OpenOrganelle project](https://openorganelle.janelia.org/).
 
 ```{code-cell} ipython3
 group = zarr.open(zarr.N5FSStore('s3://janelia-cosem-datasets/jrc_mus-kidney/jrc_mus-kidney.n5', anon=True)) # access the root of the n5 container
-    
-zdata = group['em/fibsem-uint8/s2'] # s0 is the the full-resolution data, use s2
-    
-# create a 2-level resolution image using s2 and s3
+
+# Open all resolution levels of the data.
 ddata = [
-    da.from_zarr(group[f'em/fibsem-uint8/s{i}'], chunks=zdata.chunks)
+    da.from_zarr(group[f'em/fibsem-uint8/s{i}'])
     for i in range(0, 4)
 ]
 
@@ -67,10 +65,33 @@ cropped_img = ddata[0][3000:3400, 800, 5000:6000]
 viewer.add_image(cropped_img)
 ```
 
+Open the Empanada widget
+
 ```{code-cell} ipython3
 from empanada_napari._slice_inference import test_widget
 
 widget = test_widget()
 
 viewer.window.add_dock_widget(widget, name="empanada")
+```
+
+```{image} resources/empanada_open.png
+:alt: check the normalize image box
+:width: 80%
+:align: center
+```
+
+Enter the parameters:
+
+- Set `Model` to `MitoNet_v1_mini`
+- Set `Image Downscaling` to 4 (you can play with this later)
+- Uncheck `Use quantized model`
+- If you have a NVidia GPU, then you can try to select `Use GPU` but that is not necessary
+
+You should get an output like the following:
+
+```{image} resources/empanada_2D_result.png
+:alt: check the normalize image box
+:width: 80%
+:align: center
 ```
