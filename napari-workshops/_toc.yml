@@ -6,6 +6,7 @@ root: home
 chapters:
 - file: getting_started
   sections:
+  - file: bundled_app_setup
   - file: installation
   - file: notebook_setup
 - file: notebooks/index
