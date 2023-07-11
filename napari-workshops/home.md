@@ -1,4 +1,4 @@
-# the napari image analysis workshop at Microscopy and Microanalysis 2023
+# napari workshop at Microscopy and Microanalysis 2023
 
 This site contains the materials for the image analysis component of `Biological EM Sample Processing Short Course - Part II` at M&M 2023.
 

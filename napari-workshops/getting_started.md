@@ -39,7 +39,7 @@ arriving at the tutorial:
 
 1. Install napari and dependencies. GUI-only instructions are [here](./bundled_app_setup.md), and Python-based instructions [here](./installation.md).
 
-If following the Python-based instructions you will then need to:
+If following the Python-based instructions you will then need to:  
 2. Download the notebooks and launch the `jupyter notebook` application.
   Instructions [here](./notebook_setup.md).
   

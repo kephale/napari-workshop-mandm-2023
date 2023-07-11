@@ -1,8 +1,8 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: napari workshop template
-author: napari core developers
+title: napari workshop at M \& M 2023
+author: Kyle Harrington and Kasia Kedziora
 logo: logo.ico
 
 # Only build files in the table of contents.
