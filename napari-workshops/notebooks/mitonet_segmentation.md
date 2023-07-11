@@ -41,6 +41,10 @@ from napari.utils import nbscreenshot
 viewer = napari.Viewer()
 ```
 
+```{code-cell} ipython3
+# this is my test cell
+```
+
 Let's read the metadata from our [remote image](https://openorganelle.janelia.org/datasets/jrc_mus-kidney), an electron microscopy image of mouse kidney from the [OpenOrganelle project](https://openorganelle.janelia.org/).
 
 ```{code-cell} ipython3
