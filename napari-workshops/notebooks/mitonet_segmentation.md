@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# notebook: mitonet segmentation
+# Mitonet segmentation
 
 The dataset we will use is https://openorganelle.janelia.org/datasets/jrc_mus-kidney.
 
@@ -41,11 +41,11 @@ from napari.utils import nbscreenshot
 viewer = napari.Viewer()
 ```
 
-```{code-cell} ipython3
-# this is my test cell
-```
-
 Let's read the metadata from our [remote image](https://openorganelle.janelia.org/datasets/jrc_mus-kidney), an electron microscopy image of mouse kidney from the [OpenOrganelle project](https://openorganelle.janelia.org/).
+
+If you are not familiar with zarr or dask that are used here to give us access to the data it’s not a problem. The only thing that you have to know at the moment is that they together provide a way to efficiently store and access images without loading them into memory of your computer. In this way you can get a sneak peek into large datasets.
+
+Click the links if you want to learn more about [zarr](https://zarr.readthedocs.io/en/latest/?badge=latest) or [dask](https://www.dask.org/).
 
 ```{code-cell} ipython3
 group = zarr.open(zarr.N5FSStore('s3://janelia-cosem-datasets/jrc_mus-kidney/jrc_mus-kidney.n5', anon=True)) # access the root of the n5 container
