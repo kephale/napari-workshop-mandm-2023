@@ -9,13 +9,13 @@ chapters:
   - file: bundled_app_setup
   - file: installation
   - file: notebook_setup
-- file: workshop notebooks/index
+- file: workshop_notebooks/index
   sections:
   - file: notebooks/intro_bioimage_visualization
   - file: notebooks/manual_annotation
   - file: notebooks/mitonet_segmentation    
   - file: notebooks/try_animation
-- file: additional notebooks/index
+- file: additional_notebooks/index
   sections:
   - file: notebooks/segmenting_and_measuring_nuclei_stardist
   - file: notebooks/spot_detection
