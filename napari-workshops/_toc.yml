@@ -19,4 +19,4 @@ chapters:
   sections:
   - file: additional_notebooks/segmenting_and_measuring_nuclei_stardist
   - file: additional_notebooks/spot_detection
-  - file: make_a_simple_plugin
+  - file: additional_notebooks/make_a_simple_plugin
