@@ -9,7 +9,7 @@ chapters:
   - file: bundled_app_setup
   - file: installation
   - file: notebook_setup
-- file: workshop_notebooks/index 
+- file: notebooks/index 
   sections:
   - file: notebooks/intro_bioimage_visualization
   - file: notebooks/manual_annotation
@@ -17,6 +17,6 @@ chapters:
   - file: notebooks/try_animation
 - file: additional_notebooks/index
   sections:
-  - file: notebooks/segmenting_and_measuring_nuclei_stardist
-  - file: notebooks/spot_detection
+  - file: additional_notebooks/segmenting_and_measuring_nuclei_stardist
+  - file: additional_notebooks/spot_detection
   - file: make_a_simple_plugin
