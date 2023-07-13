@@ -9,7 +9,7 @@ chapters:
   - file: bundled_app_setup
   - file: installation
   - file: notebook_setup
-- file: workshop_notebooks/index
+- file: workshop_notebooks/index 
   sections:
   - file: notebooks/intro_bioimage_visualization
   - file: notebooks/manual_annotation
