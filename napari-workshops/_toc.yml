@@ -15,7 +15,7 @@ chapters:
   - file: notebooks/manual_annotation
   - file: notebooks/mitonet_segmentation    
   - file: notebooks/try_animation
-- caption: additional_notebooks
+- caption: additional_notebooks/index
   sections:
   - file: additional_notebooks/segmenting_and_measuring_nuclei_stardist
   - file: additional_notebooks/spot_detection
