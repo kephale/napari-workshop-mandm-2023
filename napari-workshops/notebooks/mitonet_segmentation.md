@@ -168,3 +168,13 @@ Data frames are a very convenient input to create graphs with a [seaborn](https:
 ```{code-cell} ipython3
 sns.histplot(data=df,x='area')
 ```
+
+```{image} resources/area_graph.png
+:alt: check the normalize image box
+:width: 80%
+:align: center
+```
+
+```{code-cell} ipython3
+
+```
