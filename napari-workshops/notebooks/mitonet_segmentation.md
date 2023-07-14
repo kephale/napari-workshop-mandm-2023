@@ -216,7 +216,7 @@ You should get an output like the following:
 
 +++
 
-```{image} resources/empanada_2D_result_clean_border.png
+```{image} resources/empanada_2D_result_border_clean.png
 :alt: check the normalize image box
 :width: 80%
 :align: center
@@ -239,6 +239,14 @@ df_sel = pd.DataFrame(rp_dict_sel)
 # plotting
 sns.histplot(data=df_sel,x='area')
 ```
+
+```{image} resources/area_graph_sel.png
+:alt: check the normalize image box
+:width: 80%
+:align: center
+```
+
++++
 
 ## Conclusions
 
