@@ -37,6 +37,10 @@ import dask.array as da
 import napari
 from napari.utils import nbscreenshot
 
+from skimage.measure import regionprops_table
+import pandas as pd
+import seaborn as sns
+
 # Create an empty viewer
 viewer = napari.Viewer()
 ```
@@ -55,19 +59,28 @@ ddata = [
     da.from_zarr(group[f'em/fibsem-uint8/s{i}'])
     for i in range(0, 4)
 ]
+```
 
+`ddata` is a list containing data at different resolution levels. 
+See the shapes of the available stacks:
+
+```{code-cell} ipython3
 [a.shape for a in ddata]
 ```
 
 Our image is very large and performing a segmentation on the full data would take a long time.
 
-We will crop a 2D slice of our image and show how to perform a segmentation on that region.
+We will crop a 2D slice `cropped_img` of our image and show how to perform a segmentation on that region.
 
 ```{code-cell} ipython3
 cropped_img = ddata[0][3000:3400, 800, 5000:6000]
 
 viewer.add_image(cropped_img)
 ```
+
+## Segmentation
+
++++
 
 Open the Empanada widget
 
@@ -98,4 +111,60 @@ You should get an output like the following:
 :alt: check the normalize image box
 :width: 80%
 :align: center
+```
+
++++
+
+## Quantification
+
++++
+
+In this next section, we will compute and display some basic properties of the segmented mitochondria (e.g., area) using [scikit-image](https://scikit-image.org/) - an image processing library.
+
+We will then use [pandas](https://pandas.pydata.org/) data frame (think - a table of data) to collect our measurements and [seaborn](https://seaborn.pydata.org/) - a plotting library to turn them into graphs.
+
++++
+
+`Empanada` outputs the segmentation masks as a label image in a `Labels` layer
+called `'empanada_seg_2d'`. 
+In napari, we can access the layer object from the layer list by its name
+(`viewer.layers['empanada_seg_2d']`) and then we can get access to the layer data (in our case - segmented mask) by asking 
+for `data` property.
+
+```{code-cell} ipython3
+label_layer = viewer.layers['empanada_seg_2d']
+mito_labels = label_layer.data
+```
+
+We can use the scikit-image
+[regionprops_table](https://scikit-image.org/docs/dev/api/skimage.measure.html#skimage.measure.regionprops_table)
+function to measure the area and perimeter of the detected mitochondria (and many other parameters too - check documentation for details).
+`regionprops_table` outputs a dictionary where each key is a name of a
+measurement (e.g., `'area'`) and the value is the value of this parameter for each
+detected object (mitochondrion in our case).
+
+```{code-cell} ipython3
+rp_dict = regionprops_table(
+    mito_labels,
+    properties=('label','area', 'perimeter')
+)
+```
+
+You can look inside this dictionary:
+
+```{code-cell} ipython3
+rp_dict
+```
+
+Let's put this data in a data frame and display the first few rows:
+
+```{code-cell} ipython3
+df = pd.DataFrame(rp_dict)
+df.head()
+```
+
+Data frames are a very convenient input to create graphs with a [seaborn](https://seaborn.pydata.org/) library. Here you can see an example histogram showing the distribution of mitochondria area:
+
+```{code-cell} ipython3
+sns.histplot(data=df,x='area')
 ```

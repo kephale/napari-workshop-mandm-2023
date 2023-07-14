@@ -4,9 +4,9 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.10.3
+    jupytext_version: 1.14.7
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -38,8 +38,8 @@ We will start by loading an image of DAPI stained nuclei. We can use
 `scikit-image`'s `imread()` function to download the data from the link below
 and load it into a numpy array called `nuclei`.
 
-```{code-cell} python
-:tags: ["remove-output"]
+```{code-cell} ipython3
+:tags: [remove-output]
 
 from skimage import io
 
@@ -51,6 +51,7 @@ nuclei = io.imread(url)
 
 ```{code-cell} ipython3
 :tags: [remove-output]
+
 # this cell is required to run these notebooks on Binder. Make sure that you also have a desktop tab open.
 import os
 if 'BINDER_SERVICE_HOST' in os.environ:
@@ -60,15 +61,15 @@ if 'BINDER_SERVICE_HOST' in os.environ:
 As we did in the previous notebooks, we can view the image in napari using the
 `napari.view_image()` function. Here we set the colormap to `magma`.
 
-```{code-cell} python
-:tags: ["remove-output"]
+```{code-cell} ipython3
+:tags: [remove-output]
 
 import napari
 
 viewer = napari.view_image(nuclei, colormap='magma')
 ```
 
-```{code-cell} python
+```{code-cell} ipython3
 from napari.utils import nbscreenshot
 
 nbscreenshot(viewer)
@@ -179,7 +180,7 @@ measurement (e.g., `'area'`) and the value is the measurement value for each
 detected object (nucleus in the case).`
 
 ```{code-cell} ipython3
-:tags: ["remove-cell"]
+:tags: [remove-cell]
 
 from skimage.io import imread
 
