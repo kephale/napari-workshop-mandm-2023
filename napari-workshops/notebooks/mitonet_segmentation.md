@@ -37,10 +37,6 @@ import dask.array as da
 import napari
 from napari.utils import nbscreenshot
 
-from skimage.measure import regionprops_table
-import pandas as pd
-import seaborn as sns
-
 # Create an empty viewer
 viewer = napari.Viewer()
 ```
@@ -82,7 +78,7 @@ viewer.add_image(cropped_img)
 
 +++
 
-Open the Empanada widget
+Open the Empanada widget.
 
 ```{code-cell} ipython3
 from empanada_napari._slice_inference import test_widget
@@ -115,11 +111,23 @@ You should get an output like the following:
 
 +++
 
+```{note}
+Click the link to learn more about the great segmentation network [Mitonet behind the Empanada plugin](https://volume-em.github.io/empanada.html).
+```
+
++++
+
 ## Quantification
 
 +++
 
 In this next section, we will compute and display some basic properties of the segmented mitochondria (e.g., area) using [scikit-image](https://scikit-image.org/) - an image processing library.
+
+```{code-cell} ipython3
+import pandas as pd
+import seaborn as sns
+from skimage.measure import regionprops_table
+```
 
 We will then use [pandas](https://pandas.pydata.org/) data frame (think - a table of data) to collect our measurements and [seaborn](https://seaborn.pydata.org/) - a plotting library to turn them into graphs.
 
@@ -156,6 +164,12 @@ You can look inside this dictionary:
 rp_dict
 ```
 
+```{note}
+Note that the labels in the above dictionary correspond to the labels in napari - hover with your mouse over objects to see their labels in the left bottom corner.
+```
+
++++
+
 Let's put this data in a data frame and display the first few rows:
 
 ```{code-cell} ipython3
@@ -175,6 +189,66 @@ sns.histplot(data=df,x='area')
 :align: center
 ```
 
-```{code-cell} ipython3
++++
 
+## Removing border objects
+
++++
+
+You might have noticed that some detected mitochondria are at the edges of the image and only partially visible. They should not be included in the quantification of the area. You can remove objects touching image borders with [clear_border](https://scikit-image.org/docs/stable/api/skimage.segmentation.html#skimage.segmentation.clear_border) function from scikit-image:
+
+```{code-cell} ipython3
+from skimage.segmentation import clear_border
+
+selected_labels = clear_border(mito_labels)
 ```
+
+To see the results of the above operation send it back to napari:
+
+```{code-cell} ipython3
+viewer.add_labels(selected_labels)
+
+# you can automatically made the original labels invisible
+viewer.layers['empanada_seg_2d'].visible=False
+```
+
+You should get an output like the following:
+
++++
+
+```{image} resources/empanada_2D_result_clean_border.png
+:alt: check the normalize image box
+:width: 80%
+:align: center
+```
+
++++
+
+Now, you can repeat the quantification and visualization of regions:
+
+```{code-cell} ipython3
+# measurement
+rp_dict_sel = regionprops_table(
+    mito_labels,
+    properties=('label','area', 'perimeter')
+)
+
+# results to data frame
+df_sel = pd.DataFrame(rp_dict_sel)
+
+# plotting
+sns.histplot(data=df_sel,x='area')
+```
+
+## Conclusions
+
++++
+
+In this notebook we've seen how to 
+use napari plugin Empanada to automatically segment mitochondria
+
+We've also learnt how to 
+quantify simple properties of detected objects
+and display these results in a form of a graph in Jupyter Notebook.
+
+The next lessons will show you how to create simple animations of your data using napari.
