@@ -28,6 +28,20 @@ if 'BINDER_SERVICE_HOST' in os.environ:
     os.environ['DISPLAY'] = ':1.0'
 ```
 
+We need to install some extra libraries and tools for working with remote data and our machine learning tool.
+
+```{code-cell} ipython3
+# Install extra libraries for supporting remote Zarr data
+
+!pip install s3fs 
+
+!pip install --upgrade urllib3
+
+!pip install empanada-napari
+
+# No problem if you execute it again though, Python will just tell you 'Requirement already satisfied'.
+```
+
 We start by importing `napari`, our `nbscreenshot` utility and instantiating an empty viewer.
 
 ```{code-cell} ipython3
