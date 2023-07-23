@@ -88,6 +88,12 @@ cropped_img = ddata[0][3000:3400, 800, 5000:6000]
 viewer.add_image(cropped_img)
 ```
 
+Alternative way of loading a locally downloaded version of the image
+
+Download this image: https://drive.google.com/file/d/1vapS8Ibrm2qQeaNsST1GQ8HQgpHVK-Bq/view?usp=drive_link
+
+Drag and drop this file into napari
+
 ## Segmentation
 
 +++
